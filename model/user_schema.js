@@ -22,9 +22,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ["male", "female", "others"],
   },
+  role:{
+    type: String,
+    enum: ["ADMIN", "PATIENT", "DOCTOR"],
+    required: true,
+    default: "PATIENT",
+  },
   active: {
     type: Boolean,
     default: false,
   },
+  department:{
+    type:String,
+    required:false
+  }
 });
 module.exports = mongoose.model("userslist", userSchema);
